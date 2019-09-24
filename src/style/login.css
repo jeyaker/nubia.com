@@ -1,0 +1,304 @@
+@charset "UTF-8";
+body {
+  background-color: #f5f5f5;
+  font-family: "Microsoft Yahei", "微软雅黑", Arial, Helvetica, sans-serif;
+}
+
+body::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login {
+  width: 850px;
+  margin: 65px auto;
+  background-color: white;
+  height: 470px;
+  overflow: hidden;
+  position: relative;
+}
+
+body #login::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #logo {
+  width: 190px;
+  height: 55px;
+  background: url("../img/nubia-logo.png") 0 -55px;
+  margin: 30px auto 20px;
+}
+
+body #login > #myform {
+  width: 360px;
+  margin: auto;
+}
+
+body #login > #myform > em {
+  position: absolute;
+  left: 423px;
+  top: 106px;
+}
+
+body #login > #myform > em::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > #tabs .active {
+  color: #e8380d;
+}
+
+body #login > #myform > #tabs > ul {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+body #login > #myform > #tabs > ul > li {
+  float: left;
+  font-size: 18px;
+  font-family: "Microsoft Yahei";
+  cursor: pointer;
+}
+
+body #login > #myform > #tabs > ul > li::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > #tabs > ul li:last-child {
+  margin-left: 20px;
+}
+
+body #login > #myform > #tabs .show {
+  display: block;
+}
+
+body #login > #myform > #tabs > div {
+  display: none;
+}
+
+body #login > #myform > #tabs > div #phone,
+body #login > #myform > #tabs > div #tel,
+body #login > #myform > #tabs > div #pwd {
+  display: block;
+  width: 100%;
+  height: 50px;
+  text-indent: 10px;
+  font-size: 12px;
+  outline: 0;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+body #login > #myform > #tabs > div #phone::selection,
+body #login > #myform > #tabs > div #tel::selection,
+body #login > #myform > #tabs > div #pwd::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > #tabs > div #verificationCode {
+  width: 260px;
+  height: 52px;
+  text-indent: 10px;
+  font-size: 12px;
+  outline: 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  vertical-align: middle;
+  margin-bottom: 20px;
+}
+
+body #login > #myform > #tabs > div #verificationCode::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > #tabs > div #codebtn {
+  cursor: pointer;
+  width: 100px;
+  height: 52px;
+  text-align: center;
+  font-size: 12px;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-left: 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+body #login > #myform > #tabs > div #codebtn::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > #btn {
+  display: block;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #e8380d;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0;
+  user-select: none;
+  outline: 0;
+  font-family: tahoma, arial, simsun, sans-serif;
+}
+
+body #login > #myform > p {
+  color: #ccc;
+  float: right;
+}
+
+body #login > #myform > p::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > p > #reg {
+  font-size: 14px;
+  color: red;
+}
+
+body #login > #myform > p > #reg::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > p > #forget {
+  font-size: 14px;
+  color: black;
+}
+
+body #login > #myform > p > #forget::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > p > a:hover {
+  text-decoration: underline;
+}
+
+body #login > #myform > .phone {
+  position: absolute;
+  color: red;
+  width: 200px;
+  right: 37px;
+  font-size: 12px;
+  top: 167px;
+  z-index: 2;
+}
+
+body #login > #myform > .phone::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > .pwd {
+  position: absolute;
+  color: red;
+  width: 200px;
+  right: 37px;
+  font-size: 12px;
+  top: 240px;
+  z-index: 2;
+}
+
+body #login > #myform > .pwd::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > #way {
+  margin-top: 60px;
+  font-size: 14px;
+  color: #666;
+}
+
+body #login > #myform > #way::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body #login > #myform > #way > span {
+  vertical-align: middle;
+}
+
+body #login > #myform > #way > a {
+  display: inline-block;
+  margin: 0 5px;
+  width: 29px;
+  height: 29px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-image: url(../img/third_login.png);
+}
+
+body #login > #myform > #way > a:nth-of-type(4) {
+  background-position: 0 0;
+}
+
+body #login > #myform > #way > a:nth-of-type(4):hover {
+  background-position: 0 -29px;
+}
+
+body #login > #myform > #way > a:nth-of-type(3) {
+  background-position: -29px 0;
+}
+
+body #login > #myform > #way > a:nth-of-type(3):hover {
+  background-position: -29px -29px;
+}
+
+body #login > #myform > #way > a:nth-of-type(1) {
+  background-position: -58px 0;
+}
+
+body #login > #myform > #way > a:nth-of-type(1):hover {
+  background-position: -58px -29px;
+}
+
+body #login > #myform > #way > a:nth-of-type(2) {
+  background-position: -87px 0;
+}
+
+body #login > #myform > #way > a:nth-of-type(2):hover {
+  background-position: -87px -29px;
+}
+
+body > .bot {
+  color: #ccc;
+  font-size: 12px;
+  transform: scale(0.9);
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+body > .bot::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body > .bot > a {
+  color: #ccc;
+}
+
+body > .bot > a::selection {
+  color: #fff;
+  background-color: #e83100;
+}
+
+body > .bot > a:hover {
+  text-decoration: underline;
+  color: #666;
+}

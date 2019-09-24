@@ -1,0 +1,184 @@
+@charset 'utf-8';
+
+
+@mixin selection {
+    &::selection {
+        color: #fff;
+        background-color: #e83100;
+    }
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: "Microsoft Yahei",
+        "微软雅黑",
+        Arial,
+        Helvetica,
+        sans-serif;
+    @include selection;
+
+
+    #reg {
+        width: 850px;
+        margin: 65px auto;
+        background-color: white;
+        height: 470px;
+        overflow: hidden;
+        position: relative;
+
+
+
+        >span:nth-of-type(1) {
+            position: absolute;
+            width: 200px;
+            right: 37px;
+            font-size: 12px;
+            color: red;
+            top: 102px;
+            z-index: 2;
+        }
+
+        >span:nth-of-type(2) {
+            position: absolute;
+            width: 200px;
+            font-size: 12px;
+            color: red;
+            right: 37px;
+            top: 175px;
+            z-index: 2;
+        }
+
+        >#logo {
+            width: 190px;
+            height: 55px;
+            background: url('../img/nubia-logo.png') 0 -55px;
+            margin: 15px auto;
+        }
+
+        >#myform {
+            width: 360px;
+            margin: auto;
+            // background: #000;
+
+            #phone,
+            #pwd {
+                display: block;
+                width: 100%;
+                height: 50px;
+                text-indent: 10px;
+                font-size: 12px;
+                outline: 0;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                @include selection;
+            }
+
+            #code {
+                margin-bottom: 20px;
+
+                #verificationCode {
+                    @include selection;
+
+                    width: 260px;
+                    height: 50px;
+                    text-indent: 10px;
+                    font-size: 12px;
+                    outline: 0;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    vertical-align: middle;
+                }
+
+                #codebtn {
+                    cursor: pointer;
+                    width: 100px;
+                    height: 50px;
+                    text-align: center;
+                    font-size: 12px;
+                    outline: 0;
+                    border: 1px solid #ccc;
+                    border-left: 0;
+                    box-sizing: border-box;
+                    vertical-align: middle;
+                    background-color: #fff;
+                }
+            }
+
+            #agreement {
+                margin-bottom: 15px;
+                font-size: 15px;
+                color: #666;
+
+                @include selection;
+
+                >a {
+                    color: #e8380d;
+
+                    @include selection;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .submit {
+                display: block;
+                width: 100%;
+                height: 50px;
+                font-size: 18px;
+                margin-bottom: 20px;
+                text-align: center;
+                background-color: #e8380d;
+                border: 0;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 0;
+                user-select: none;
+                outline: 0;
+                font-family: tahoma,
+                    arial,
+                    simsun,
+                    sans-serif;
+            }
+
+            >p {
+                float: right;
+                font-size: 15px;
+                color: #666;
+
+                @include selection;
+
+                >a {
+                    color: #e8380d;
+                    @include selection;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+        }
+    }
+
+    >.bot {
+        color: #ccc;
+        font-size: 12px;
+        transform: scale(0.9);
+        margin-bottom: 60px;
+        text-align: center;
+        @include selection;
+
+        >a {
+            color: #ccc;
+            @include selection;
+
+            &:hover {
+                text-decoration: underline;
+                color: #666;
+            }
+        }
+    }
+
+}

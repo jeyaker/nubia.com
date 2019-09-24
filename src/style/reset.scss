@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+b,
+em,
+i,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: auto;
+}
