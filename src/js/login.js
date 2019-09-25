@@ -45,7 +45,7 @@ $(function () {
                     // console.log(res.msg);
                     if (res.has == '1') {
                         alert(res.msg);
-                        location.href = '../html/index1.html';
+                        location.href = '../html/index.html';
                     } else if (res.has == '2') {
                         $('.pwd').html(res.msg);
                     } else if (res.has == '3') {

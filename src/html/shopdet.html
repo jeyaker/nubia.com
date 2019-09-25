@@ -6,10 +6,437 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../js/jquery.lazyload.js"></script>
+        <link rel="shortcut icon" href="http://static.nubia.cn/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../style/reset.css">
+        <link rel="stylesheet" href="../style/typo.css">
+        <link rel="stylesheet" href="../style/shopdet.css">
+        <script src="../js/shopdet.js"></script>
     </head>
 
     <body>
-
+        <header>
+            <div class="wrapper nav">
+                <div id="logo">
+                    <a href="../html/index.html">
+                        <img class="lazy" data-original="../img/nubia-logo-inverse-x2-cn.png" alt="...">
+                    </a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="../html/index.html">商城</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">手机</a>
+                        <div class="sec-nav">
+                            <div class="wrapper">
+                                <a href="javascript:;">
+                                    <i class="icon-arrow-left4"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/phone_1.png" alt="...">
+                                            <span>红魔3S</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/phone_2.png" alt="...">
+                                            <span>Z20</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/phone_3.png" alt="...">
+                                            <span>红魔3</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/phone_4.png" alt="...">
+                                            <span>努比亚阿尔法</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/phone_5.png" alt="...">
+                                            <span>红魔Mars</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/phone_6.png" alt="...">
+                                            <span>X</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a href="javascript:;">
+                                    <i class="icon-arrow-right4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">红魔手机</a>
+                        <div class="sec-nav">
+                            <div class="wrapper">
+                                <a href="javascript:;">
+                                    <i class="icon-arrow-left4"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/hongmo_1.png" alt="...">
+                                            <span>红魔3S</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/hongmo_2.png" alt="...">
+                                            <span>红魔3</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <img class="lazy" data-original="../img/hongmo_3.png" alt="...">
+                                            <span>红魔Mars</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a href="javascript:;">
+                                    <i class="icon-arrow-right4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">配件</a>
+                        <div class="sec-nav">
+                            <div class="wrapper">
+                                <a href="javascript:;">
+                                    <i class="icon-arrow-left4"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-case"></i>
+                                            <span>保护套</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-earphones"></i>
+                                            <span>耳机</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-cable"></i>
+                                            <span>数据线</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-peripheral"></i>
+                                            <span>周边产品</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i>
+                                                <em class="icon-plus icon-sm"></em>
+                                            </i>
+                                            <span>查看所有配件</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a href="javascript:;">
+                                    <i class="icon-arrow-right4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">摄影</a>
+                        <div class="sec-nav">
+                            <div class="wrapper">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i>
+                                                <img class="lazy logo1" data-original="../img/NeoVision-logo.png"
+                                                    alt="...">
+                                            </i>
+                                            <span>努比亚摄影引擎</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-gallery"></i>
+                                            <span>摄影长廊</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-fill_timelapse"></i>
+                                            <span>延时摄影</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-starphone"></i>
+                                            <span>星空之约</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">服务</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">体验店</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">社区</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">nubia UI</a>
+                        <div class="sec-nav">
+                            <div class="wrapper">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i>
+                                                <img class="lazy logo2" data-original="../img/nubiaui-logo.png"
+                                                    alt="...">
+                                            </i>
+                                            <span>nubia UI 6.0</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-circle_arrow-down5"></i>
+                                            <span>ROM下载</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-message"></i>
+                                            <span>UI社区</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-cloud-transfer"></i>
+                                            <span>云服务</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-tools"></i>
+                                            <span>应用</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search">
+                        <input type="text" name="search" id="search" placeholder="红魔3S" autocomplete="off">
+                        <a href="javascript:;"><i class="icon-magnify-glass icon-1x"></i></a>
+                    </li>
+                    <li class="personage">
+                        <a href="javascript:;">
+                            <i class="icon-user-o icon-2x"></i>
+                        </a>
+                        <div class="reg-login">
+                            <span></span>
+                            <ul>
+                                <li>
+                                    <a href="../html/login.html">立即登录</a>
+                                    <p><span>没有账号？</span><a href="../html/reg.html">立即注册</a></p>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-home"></i><span>个人中心</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-gift"></i><span>我的订单</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-card"></i><span>我的优惠券</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-star"></i><span>我的收藏</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-clock"></i><span>我的预约</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-mail"></i><span>收货地址</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="shopCart">
+                        <a href="../html/shopcar.html"><i class="icon-caddie icon-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section class="about">
+            <div class="wrapper">
+                <ul>
+                    <li>
+                        <h3>关于我们</h3>
+                        <ul>
+                            <li><a href="javascript:;">关于nubia</a></li>
+                            <li><a href="javascript:;">产品热评</a></li>
+                            <li><a href="javascript:;">体验店</a></li>
+                            <li><a href="javascript:;">新闻中心</a></li>
+                            <li><a href="javascript:;">视频长廊</a></li>
+                            <li><a href="javascript:;">联系我们</a></li>
+                            <li><a href="javascript:;">企业购</a></li>
+                            <li><a href="javascript:;">友情链接</a></li>
+                            <li><a href="javascript:;">合作伙伴</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>手机</h3>
+                        <ul>
+                            <li><a href="javascript:;">红魔3S</a></li>
+                            <li><a href="javascript:;">Z20</a></li>
+                            <li><a href="javascript:;">红魔3</a></li>
+                            <li><a href="javascript:;">阿尔法</a></li>
+                            <li><a href="javascript:;">红魔Mars游戏电竞手机</a></li>
+                            <li><a href="javascript:;">X</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>配件</h3>
+                        <ul>
+                            <li><a href="javascript:;">保护套</a></li>
+                            <li><a href="javascript:;">耳机</a></li>
+                            <li><a href="javascript:;">数据线/充电器</a></li>
+                            <li><a href="javascript:;">周边产品</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>服务中心</h3>
+                        <ul>
+                            <li><a href="javascript:;">个人中心</a></li>
+                            <li><a href="javascript:;">售后服务</a></li>
+                            <li><a href="javascript:;">售后网点</a></li>
+                            <li><a href="javascript:;">特色服务</a></li>
+                            <li><a href="javascript:;">软件下载</a></li>
+                            <li><a href="javascript:;">产品安全</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>关注我们</h3>
+                        <ul>
+                            <li><a href="javascript:;">官方社区</a></li>
+                            <li><a href="javascript:;">新浪微博</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>全国服务热线</h3>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="icon-phone"></i> &nbsp;&nbsp;&nbsp;400-700-6600
+                                </a>
+                            </li>
+                            <li style="color: rgba(96, 100, 99, .5);">周一到周日 8:30-20:30</li>
+                            <li style="color: rgba(96, 100, 99, .5);margin-bottom: 12px;">(全年无休)</li>
+                            <li>
+                                <a href="javascript:;">
+                                    <img class="lazy" data-original="../img/kefu.png" alt="...">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="fix">
+            <ul>
+                <li>
+                    <a href="../html/shopcar.html">
+                        <i class="nb-shopCar-ico icon-circle_caddie"></i>
+                    </a>
+                    <div>
+                        <span>购物车</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="icon-circle_bag"></i>
+                    </a>
+                    <div>
+                        <img src="../img/app.png" alt="...">
+                        <span>nubia商城</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="nb-service-ico icon-circle_headphones-mic"></i>
+                    </a>
+                    <div>
+                        <span>在线客服</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;" class="toTop">
+                        <i class="icon-circle_arrow-up"></i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <footer>
+            <div class="wrapper">
+                <a href="javascript:;">
+                    <img class="lazy" data-original="../img/nubia-logo-x2.png" alt="...">
+                </a>
+                <p class="w">
+                    <a href="javascript:;">
+                        <i class="icon-circle_weibo"></i>
+                    </a>
+                    <a href="javascript:;">
+                        <i class="icon-circle_wechat"></i>
+                    </a>
+                </p>
+                <div>
+                    <span>2012-2019 努比亚技术有限公司 版权所有</span> <em> | </em>
+                    <a href="javascript:;">隐私政策</a> <em> | </em>
+                    <a href="javascript:;">关于cookie</a>&nbsp;&nbsp;
+                    <strong>
+                        简体中文
+                    </strong>
+                </div>
+                <p class="info">
+                    <a href=""> 粤ICP备10006213号</a>&nbsp;&nbsp;
+                    <span> ICP经营许可证编号：粤B2-20120688</span>&nbsp;&nbsp;
+                    <a href="">粤公网安备 44030502000309号</a>
+                </p>
+                <img class="lazy" data-original="../img/cnnic.png" alt="...">
+            </div>
+        </footer>
     </body>
 
 </html>

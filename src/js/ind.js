@@ -1,5 +1,21 @@
 $(function () {
     $('#slider').slider();
+    $(window).on('scroll', function () {
+        // console.log(this);
+        // var windowHeight = $(window).height(); // 当前窗口内的高度 innerHeight
+        var scrollTop = $(window).scrollTop(); //获得当前滚动条滚动的距离
+        // var docHeight = $(document).height(); //获得文档的高度
+        // console.log(scrollTop);
+        if (scrollTop < 300) {
+            $('.toTop').css({
+                display: 'none'
+            });
+        } else if (scrollTop > 300) {
+            $('.toTop').css({
+                display: 'block'
+            });
+        }
+    });
     $.ajax({
         url: '../php/getall.php',
         type: 'get',
@@ -12,7 +28,7 @@ $(function () {
                 str2 = '';
             for (var i = 0; i < 6; i++) {
                 var pic = JSON.parse(res[i + 45].pic);
-                console.log(res[i + 45].original_price);
+                // console.log(res[i + 45].original_price);
                 if (res[i + 45].original_price == 0.00) {
                     str1 += `<li>
                             <a href = "../html/shopdet.html?id=${res[i + 45].id}">

@@ -74,7 +74,7 @@ $(function () {
                     console.log(res);
                     if (res.has == 'true') {
                         alert(res.msg);
-                        location.href = '../html/index1.html';
+                        location.href = '../html/index.html';
                     } else {
                         alert(res.msg);
                         location.reload();

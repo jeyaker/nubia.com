@@ -83,11 +83,13 @@
             next = function () {
                 stop();
                 start(1);
+                timer = setInterval(start.bind(null, 1), defaults.speed + defaults.delay);
             };
             // 上一个按钮事件
             prev = function () {
                 stop();
                 start(0);
+                timer = setInterval(start.bind(null, 1), defaults.speed + defaults.delay);
             };
 
 

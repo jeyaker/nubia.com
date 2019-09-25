@@ -348,6 +348,10 @@ body {
                     background-color: #fff;
                 }
 
+                &:hover>div {
+                    display: block;
+                }
+
                 >a {
                     display: block;
                     width: 240px;
@@ -359,7 +363,55 @@ body {
                     text-indent: 40px;
                 }
 
-                >div {}
+                >div {
+                    position: absolute;
+                    z-index: 20;
+                    background-color: #fff;
+                    height: 520px;
+                    left: 240px;
+                    top: 0;
+                    display: none;
+
+                    >ul {
+                        display: flex;
+                        flex-flow: wrap;
+
+                        >li {
+                            width: 240px;
+                            height: 90px;
+
+
+
+                            >a {
+                                display: block;
+                                width: 240px;
+                                height: 90px;
+                                line-height: 90px;
+
+                                &:hover>span {
+                                    color: #e8340e;
+                                }
+
+                                >img {
+                                    margin-left: 10px;
+                                    width: 60px;
+                                    height: 60px;
+                                }
+
+                                >span {
+                                    margin-left: 10px;
+                                    color: #666;
+                                    font-size: 12px;
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            >li:first-child>div {
+                width: 480px;
             }
         }
 
@@ -369,16 +421,14 @@ body {
             width: 100%;
 
             >div {
-                // overflow: hidden;
+                height: 520px;
+                width: 100%;
+                overflow: hidden;
 
                 >img {
-                    position: absolute;
-                    left: -200px;
-                    width: 1920px;
-                    z-index: 3;
-                    opacity: 0;
+                    height: 520px;
+                    transform: translateX(-200px);
                     opacity: 1;
-                    // transition: opacity 2s;
                 }
 
             }
@@ -392,7 +442,7 @@ body {
                 left: 415px;
                 top: 225px;
                 cursor: pointer;
-                z-index: 10;
+                z-index: 4;
                 @include border-radius(15px);
                 transition: background-position 0.5s;
 
@@ -411,7 +461,7 @@ body {
                 height: 69px;
                 right: 175px;
                 top: 225px;
-                z-index: 10;
+                z-index: 4;
                 cursor: pointer;
 
                 &:hover {
@@ -421,7 +471,7 @@ body {
 
             >ul {
                 position: absolute;
-                z-index: 10;
+                z-index: 5;
                 bottom: 15px;
                 left: 50%;
                 transform: translateX(-20px);
@@ -1040,6 +1090,7 @@ body {
 
     >.fix {
         position: fixed;
+        z-index: 7;
         right: 15px;
         bottom: 50px;
         // background-color: #000;
@@ -1052,7 +1103,11 @@ body {
             justify-content: space-between;
 
             >li {
+                width: 50px;
+                height: 50px;
+
                 >a {
+                    display: block;
                     color: #999;
 
                     &:hover {
@@ -1184,6 +1239,9 @@ body {
                 }
             }
 
+            >li:last-child>a {
+                display: none;
+            }
         }
     }
 
