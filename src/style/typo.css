@@ -84,6 +84,30 @@
   content: "\e601";
 }
 
+.icon-circle_ser:before {
+  content: "\e901";
+}
+
+.icon-circle-server:before {
+  content: "\e903";
+}
+
+.icon-circle_cog {
+  content: "\e90d";
+}
+
+.icon-circle_report {
+  content: "\e9ef";
+}
+
+.icon-circle_15-c:before {
+  content: "\e900";
+}
+
+.icon-circle-more:before {
+  content: "\e927";
+}
+
 .icon-iso:before {
   content: "\e602";
 }

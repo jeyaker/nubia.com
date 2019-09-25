@@ -12,17 +12,19 @@
                 tabs = null,
                 elms = {},
                 defaults = {
-                    speed: 500,
-                    delay: 2000
+                    speed: 800,
+                    delay: 4000
                 } // 默认参数
 
             defaults = $.extend(defaults, options); // 合并对象
 
             //  1.初始化
             init = function () {
-                elms._index = 1; // 初始为第一张图片
+                elms._index = 0; // 初始为第一张图片
                 elms.btn = that.children('span'); // 获取按钮
                 elms.img = that.children('div').children('img'); // 获取img
+                elms.tabs = that.children('ul').children();
+                elms.imgsrc = ['../img/brand_2.jpg', '../img/brand_3.jpg', '../img/brand_4.jpg', '../img/brand_5.jpg'];
 
                 // 绑定按钮事件
                 elms.btn.on('click', function () {
@@ -34,64 +36,46 @@
                 });
 
                 // 绑定hover
-                that.hover(function () { // 鼠标移到图片时
-                    stop();
-                }, function () { // 鼠标离开图片时
-                    timer = setInterval(start.bind(null, 1), defaults.speed + defaults.delay);
-                });
+                // that.hover(function () { // 鼠标移到图片时
+                //     stop();
+                // }, function () { // 鼠标离开图片时
+                //     timer = setInterval(start.bind(null, 1), defaults.speed + defaults.delay);
+                // });
 
                 // 选项卡
-                // var btn = that.children('ul').children();
-                // // console.log(btn);
-                // btn.on('click', function () {
-                //     // console.log(this);
-                //     var index = btn.index(this);
-                //     // console.log(index);
-                //     elms._index = index + 1;
-                //     elms.sliderDiv.css({
-                //         left: elms.sliderDiv.offset().left - elms.sliderDiv.children('img').eq(index).offset().left
-                //     });
-                // });
+
+                elms.tabs.on('click', function () {
+                    // console.log(this);
+                    var index = elms.tabs.index(this);
+                    elms._index = index;
+                    $(this).addClass('active').siblings().removeClass('active');
+                    elms.img.attr('src', elms.imgsrc[elms._index]);
+                });
             };
 
             // 2.开始动画
             start = function (fx) { // 传入参数用来设置轮播方向
-                if (!fx) { // 判断方向
-                    elms.img.each(function (i, elm) {
-                        if (elms._index == i + 1) {
-                            if (elms._index == 1) {
-                                elms.img[3].style.opacity = 1;
-                            } else {
-                                elms.img[i - 1].style.opacity = 1;
-                            }
-                            $(elm).fadeTo(defaults.speed, 0, function () {
-                                elms._index--;
-                                if (elms._index == 0) { // 边界
-                                    elms._index = 4;
-                                }
-                                console.log(elms._index);
-                            });
+                elms.img.animate({
+                    opacity: 0.6
+                }, defaults.speed / 2, function () {
+                    if (fx) {
+                        ++elms._index;
+                        if (elms._index == 4) {
+                            elms._index = 0;
                         }
-                    });
-                } else {
-                    elms.img.each(function (i, elm) {
-                        if (elms._index == i + 1) {
-                            if (elms._index == 4) {
-                                elms.img[0].style.opacity = 1;
-                            } else {
-                                elms.img[i + 1].style.opacity = 1;
-                            }
-                            $(elm).fadeTo(defaults.speed, 0, function () {
-                                elms._index++;
-                                if (elms._index == 5) {
-                                    elms._index = 1;
-                                }
-                                // console.log(elms._index);
-                            });
+                        elms.img.attr('src', elms.imgsrc[elms._index]);
+                        $(elms.tabs[elms._index]).addClass('active').siblings().removeClass('active');
+                    } else {
+                        --elms._index;
+                        if (elms._index == -1) {
+                            elms._index = 3;
                         }
-                    });
-                }
-
+                        elms.img.attr('src', elms.imgsrc[elms._index]);
+                        $(elms.tabs[elms._index]).addClass('active').siblings().removeClass('active');
+                    }
+                }).animate({
+                    opacity: 1
+                }, defaults.speed / 2);
             };
 
             // 3.方向控制
@@ -116,7 +100,7 @@
             // 主函数
             main = function () {
                 init();
-                timer = setInterval(start.bind(null, 1), defaults.delay);
+                timer = setInterval(start.bind(null, 1), defaults.speed + defaults.delay);
             };
             main();
 
