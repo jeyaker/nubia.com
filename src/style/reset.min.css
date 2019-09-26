@@ -1,1 +1,1 @@
-*{margin:0;padding:0}a{text-decoration:none}b,em,i,strong{font-style:normal;font-weight:normal}ul{list-style:none}img{vertical-align:middle;border:0}.wrapper{width:1200px;margin:auto}
+*{margin:0;padding:0}a{text-decoration:none}b,em,i,strong{display:inline-block;vertical-align:middle;font-weight:normal;font-style:normal}ul{list-style:none}img{vertical-align:middle;border:0;user-select:none}.wrapper{width:1200px;margin:auto}

@@ -11,8 +11,10 @@ b,
 em,
 i,
 strong {
-  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
   font-weight: normal;
+  font-style: normal;
 }
 
 ul {
@@ -22,6 +24,7 @@ ul {
 img {
   vertical-align: middle;
   border: 0;
+  user-select: none;
 }
 
 .wrapper {
