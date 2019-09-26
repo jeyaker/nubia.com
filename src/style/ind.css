@@ -392,6 +392,7 @@ body > .banner > #slider > div > img {
   height: 520px;
   transform: translateX(-200px);
   opacity: 1;
+  cursor: pointer;
 }
 
 body > .banner > #slider > .prev {

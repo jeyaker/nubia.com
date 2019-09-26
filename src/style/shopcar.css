@@ -1,6 +1,10 @@
 @charset "UTF-8";
 body {
   font-family: "Microsoft Yahei", "微软雅黑", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  font-weight: 300;
 }
 
 body::selection {
@@ -285,6 +289,231 @@ body > header .nav > ul > .personage > .reg-login > ul > li:first-child > p > sp
 body > header .nav > ul > .personage > .reg-login > ul > li:first-child > p > a {
   color: #f35d49;
   font-size: 13px;
+}
+
+body > .progress {
+  width: 100%;
+  height: 180px;
+  text-align: center;
+}
+
+body > .progress > img {
+  margin-top: 50px;
+}
+
+body > .shopcar > .wrapper > table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #eef0f0;
+  font-size: 13px;
+  width: 100%;
+}
+
+body > .shopcar > .wrapper > table > caption {
+  text-align: left;
+  font-size: 14px;
+}
+
+body > .shopcar > .wrapper > table > caption > span {
+  color: red;
+}
+
+body > .shopcar > .wrapper > table > thead > tr > th {
+  height: 36px;
+  line-height: 36px;
+  background-color: #f7f9f9;
+  color: #727171;
+  text-align: center;
+  border: 1px solid #eef0f0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  vertical-align: middle;
+  font-size: 12px;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr:hover > td {
+  background-color: #ebf3e6;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td {
+  text-align: center;
+  border: 1px solid #eef0f0 !important;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:first-child > img {
+  width: 100px;
+  height: 100px;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:nth-child(2) {
+  text-align: left;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:nth-child(2) > a {
+  font-size: 16px;
+  color: #000;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:nth-child(2) > a:hover {
+  color: #cf2b00;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:nth-child(4) > div {
+  border: 1px solid #e0d7e3;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:nth-child(4) > div > span {
+  cursor: pointer;
+  padding: 6px 8px;
+  color: #606366;
+  font-size: 16px;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:nth-child(4) > div > input {
+  height: 25px;
+  background: transparent;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  width: 50px;
+  text-align: center;
+  color: #899096;
+  border-top: none;
+  border-bottom: none;
+  outline: 0;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:nth-child(5) {
+  line-height: 1.8;
+}
+
+body > .shopcar > .wrapper > table > tbody > tr > td:nth-child(6) > a {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  color: #838383;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "arial", sans-serif;
+  line-height: 19px;
+  cursor: pointer;
+  font-size: 18px;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+body > .shopcar > .wrapper > table > tfoot > tr > td {
+  padding: 10px;
+  border: 1px solid #eef0f0;
+  vertical-align: middle;
+}
+
+body > .shopcar > .wrapper > table > tfoot > tr > td:first-child {
+  height: 90px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+body > .shopcar > .wrapper > table > tfoot > tr > td:nth-child(2) {
+  text-align: right;
+  line-height: 1.8;
+}
+
+body > .shopcar > .wrapper > table > tfoot > tr > td:nth-child(2) > p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+body > .shopcar > .wrapper > table > tfoot > tr > td:nth-child(3) {
+  text-align: left;
+  line-height: 1.8;
+}
+
+body > .shopcar > .wrapper > div {
+  border: 1px solid #e7e7e7;
+  overflow: hidden;
+  text-align: center;
+  height: 70px;
+  border-top: none;
+  margin: 14.6px auto;
+}
+
+body > .shopcar > .wrapper > div > a {
+  display: block;
+  padding: 10px;
+  float: left;
+  width: 100px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+body > .shopcar > .wrapper > div > a:first-child {
+  margin-left: 450px;
+  color: #e8380d;
+  background: #fff;
+  border: 1px solid #e8380d;
+}
+
+body > .shopcar > .wrapper > div > a:first-child:hover {
+  color: #000;
+}
+
+body > .shopcar > .wrapper > div > a:last-child {
+  color: #fff;
+  background: #e8380d;
+  margin-left: 50px;
+}
+
+body > .shopcar > .wrapper > div > a:last-child:hover {
+  color: #000;
+}
+
+body > .server {
+  width: 100%;
+  text-align: center;
+  background: #f4f3ef;
+  padding: 30px 0;
+}
+
+body > .server > .wrapper {
+  height: 117px;
+  background-color: white;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body > .server > .wrapper > div {
+  height: 100%;
+  float: left;
+  text-align: center;
+  line-height: 48px;
+  width: 25%;
+  border-right: 1px solid #d9d9d9;
+}
+
+body > .server > .wrapper > div > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  height: 100%;
+  width: 100%;
+}
+
+body > .server > .wrapper > div > a > i {
+  font-size: 48px;
+}
+
+body > .server > .wrapper > div > a > span {
+  padding-left: 10px;
 }
 
 body > .about {
