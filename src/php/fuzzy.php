@@ -3,7 +3,7 @@
 
     $name = $_REQUEST['name'];
 
-    $res = $mysqli->query("select * from goods where title like '%$name%'");
+    $res = $mysqli->query("select * from goods where (title like '%$name%') and ((id between 46 and 51) or (id between 53 and 58))" );
 
     $arr = [];
 

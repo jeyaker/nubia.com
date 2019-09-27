@@ -393,139 +393,159 @@ body {
             }
 
             >#searchBlock {
-                margin-top: 10px;
-                margin-bottom: 60px;
-
-                &:after {
-                    content: "";
-                    display: block;
-                    height: 0;
-                    clear: both;
-                    visibility: hidden;
-                    overflow: hidden;
-                }
+                width: 100%;
+                // display: flex;
+                // flex-flow: wrap;
+                // justify-content: space-between;
+                // align-content: space-between;
+                margin: 10px 0 60px;
+                overflow: hidden;
 
                 >li {
+                    float: left;
                     width: 290px;
                     height: 450px;
-                    margin-left: 13px;
-                    background: #f4f3ef;
-                    margin-bottom: 13px;
-                    float: left;
-                    text-align: center;
+                    background-color: #f4f3ef;
                     position: relative;
-                    overflow: hidden;
+                    margin: 0 0 13px 13px;
+
+                    &:hover>a>div>p {
+                        display: none;
+                    }
+
+                    &:hover>a>img {
+                        margin-top: 49px;
+                    }
+
+                    &:hover>.btn {
+                        display: flex;
+                    }
 
                     >a {
-                        >.nbc-pro-cont {
-                            height: 382px;
-                            position: relative;
 
-                            >.figure {
-                                height: 248px;
-                                width: 290px;
-                                margin-top: 54px;
-                                transition: transform 0.15s linear;
+                        >img {
+                            margin-top: 54px;
+                            width: 290px;
+                            transition: margin-top 0.2s;
+                        }
 
-                                >img {
-                                    height: 100%;
-                                }
+                        >div {
+                            width: 290px;
+                            text-align: center;
+
+                            >span {
+                                display: block;
+                                color: #222;
+                                line-height: 1.2;
+                                font-weight: normal;
+                                font-family: 'Gotham',
+                                    Helvetica,
+                                    Arial,
+                                    sans-serif;
                             }
 
-                            >.figure-info {
-                                margin-top: 10px;
+                            >em {
+                                display: block;
+                                color: #FF4D4D;
+                                font-size: 13px;
                                 line-height: 24px;
-                                text-overflow: ellipsis;
-                                overflow: hidden;
-
-                                >h2 {
-                                    font-size: 16px;
-                                    color: #222;
-                                    font-weight: normal;
-                                }
-
-                                >span {
-                                    font-size: 13px;
-                                    color: #999;
-                                }
+                                margin-bottom: 12px;
+                                font-weight: 300;
                             }
 
-                            >.price {
-                                text-align: center;
-                                padding: 0;
-                                left: 0;
-                                bottom: 32px;
+                            >p {
                                 position: absolute;
-                                width: 100%;
+                                bottom: 60px;
+                                width: 290px;
+                                color: #f35c49;
+                                line-height: 32px;
+                                font-family: 'Microsoft Yahei',
+                                    微软雅黑,
+                                    Arial,
+                                    Helvetica,
+                                    sans-serif;
+
+                                >sup {
+                                    font-size: 14px;
+                                    font-weight: 200;
+                                }
+
+                                >strong {
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                }
 
                                 >span {
-                                    margin-right: 5px;
-                                    padding-top: 0;
-                                    color: #f35c49;
-                                    display: inline-block;
-                                    font-family: 'Microsoft Yahei',
-                                        微软雅黑,
-                                        Arial,
-                                        Helvetica,
-                                        sans-serif;
+                                    color: #aaa;
                                     font-weight: 200;
+                                }
 
-                                    >sub {
-                                        font-size: 14px !important;
-                                        line-height: 32px !important;
-                                        vertical-align: text-top;
-                                    }
-
-                                    >em {
-                                        font-size: 16px;
-                                        font-weight: bold;
-                                        line-height: 32px;
-                                        display: inline-block;
-                                        vertical-align: middle;
-                                        margin-bottom: 5px;
-                                    }
+                                >del {
+                                    color: #aaa;
+                                    font-size: 14px;
+                                    font-weight: 200;
                                 }
                             }
+
                         }
                     }
 
-                    >.nbc-pro-btn:hover {
-                        display: block;
-                    }
-
-                    >.nbc-pro-btn {
-                        display: none;
-                        width: 100%;
+                    >.btn {
                         position: absolute;
+                        width: 290px;
+                        height: 34px;
                         bottom: 32px;
-                        text-align: center;
-
-
+                        left: 0;
+                        display: flex;
+                        justify-content: center;
+                        display: none;
 
                         >a {
+                            display: inline-block;
                             width: 116px;
                             height: 34px;
-                            line-height: 34px;
+                            @include border-radius(17px);
                             text-align: center;
-                            border: none;
-                            border-radius: 16px;
-                            color: #666;
-                            -webkit-transition: all .2s ease-in-out;
-                            -moz-transition: all .2s ease-in-out;
-                            transition: all .2s ease-in-out;
+                            font-size: 14px;
+                            line-height: 34px;
                             margin: 0 6px;
-                            display: inline-block;
+                            font-weight: 300;
                         }
 
-                        >.btn-info {
-                            background: #fff;
-                            color: #f35c49;
+                        >a:first-child {
+                            background-color: #fff;
+                            color: #ec402a;
+
+                            &:hover {
+                                background-color: #fcfcfc;
+                            }
                         }
 
-                        >.btn-sell {
-                            background: #f35c49;
+                        >a:last-child {
+                            background-color: #f35c49;
                             color: #fff;
+
+                            &:hover {
+                                background-color: #ec402a;
+                            }
                         }
+                    }
+
+                }
+
+                >.nothing {
+                    width: 100%;
+                    height: 250px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 15px;
+                    display: none;
+
+                    >img {
+                        width: 100px;
+                        height: 100px;
                     }
                 }
             }

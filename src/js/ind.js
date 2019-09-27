@@ -147,6 +147,14 @@ $(function () {
     }
 
     $('#query').on('click', function () {
-        location.href = '../html/search.html';
+        var value = $('#search').val() ? $('#search').val() : $('#search').attr('placeholder');
+        console.log(value);
+        location.href = `../html/search.html?name=${value}`;
     });
+    $('#search').on('keyup', function (e) {
+        if (e.keyCode == 13) {
+            var value = $(this).val() ? $(this).val() : $(this).attr('placeholder');
+            location.href = `../html/search.html?name=${value}`;
+        }
+    })
 });

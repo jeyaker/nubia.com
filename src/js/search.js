@@ -74,6 +74,7 @@ $(function () {
         }
     })
 
+    $('.content .name').html(name);
     $.ajax({
         type: 'post',
         data: {
@@ -82,10 +83,41 @@ $(function () {
         url: '../php/fuzzy.php',
         dataType: 'json',
         error: function (err) {
-            console.log(err)
+            console.log(err);
         },
         success: function (res) {
             console.log(res);
+            if (res.length) {
+                var str = '';
+
+                for (let i = 0; i < res.length; i++) {
+                    var pic = JSON.parse(res[i].pic);
+                    console.log(pic);
+                    str += `<li>
+                        <a href="../html/shopdet.html?id=${res[i].id}">
+                            <img draggable="false" class="lazy" data-original="${pic[0].src}" alt="..." title="">
+                            <div>
+                                <span>${res[i].title}</span>
+                                <em>${res[i].details}</em>
+                                <p><sup>￥</sup> <strong>${res[i].price}</strong></p>
+                            </div>
+                        </a>
+                        <div class="btn">
+                            <a href="javascript:;">查看详情</a>
+                            <a href="../html/shopdet.html?id=${res[i].id}">立即购买</a>
+                        </div>
+                    </li>`;
+                }
+
+                $('#searchBlock .nothing').before(str);
+            } else {
+                $('#searchBlock .nothing').css({
+                    display: 'flex'
+                });
+            }
+
+            lazyload();
+
         }
     });
 });
