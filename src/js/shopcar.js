@@ -1,7 +1,10 @@
 $(function () {
-    $('img.lazy').lazyload({
-        effect: "fadeIn"
-    });
+    function lazyload() {
+        $('img.lazy').lazyload({
+            effect: "fadeIn"
+        });
+    }
+
     $(window).on('scroll', function () {
         // console.log(this);
         // var windowHeight = $(window).height(); // 当前窗口内的高度 innerHeight
@@ -18,9 +21,15 @@ $(function () {
             });
         }
     });
+
     var shop = cookie.get('shop');
-    shop = JSON.parse(shop);
-    if (shop) {
+    // console.log(shop);
+    if (shop && shop != '[]') {
+        $('.noshop').css({
+            display: 'none'
+        });
+
+        shop = JSON.parse(shop);
         var idList = shop.map(elm => elm.id).join();
         $.ajax({
             url: '../php/shopcar.php',
@@ -38,41 +47,157 @@ $(function () {
                 var str = '',
                     count = 0,
                     sum = 0;
-                res.forEach(elm => {
-                    var arr = shop.filter((val, i) => val.id == elm.id);
-                    for (let i = 0; i < arr.length; i++) {
-                        var pic = JSON.parse(elm.pic);
-                        console.log(pic);
-                        count += parseInt(arr[i].num);
-                        sum += arr[i].num * elm.price;
-                        str += `<tr>
-                            <td>
-                                <img src="${pic[0].src}">
-                            </td>
-                            <td class="">
-                                <a href="javascript:;" class="">
-                                    ${pic[1].title}
-                                </a>
-                            </td>
-                            <td> ￥${elm.price}</td>
-                            <td>
-                                <div class=""><span class="minus">-</span> <input type="text" maxlength="2"
-                                        readonly="readonly" class="" value="${arr[i].num}" id="num"> <span class="add">+</span></div>
-                            </td>
-                            <td class="">
-                                ￥${(arr[i].num*elm.price).toFixed(2)}
-                            </td>
-                            <td>
-                                <a title="删除" class="del">×</a>
-                            </td>
-                        </tr>`;
-                    }
+                shop.forEach(elm => {
+                    var arr = res.filter((val, i) => val.id == elm.id);
+                    // console.log(arr);
+                    var pic = JSON.parse(arr[0].pic);
+                    // console.log(pic);
+                    count += parseInt(elm.num);
+                    sum += arr[0].price * elm.num;
+                    str += `<tr>
+                                <td>
+                                    <img class="lazy" data-original="${pic[0].src}">
+                                </td>
+                                <td class="">
+                                    <a href="javascript:;" class="">
+                                        ${pic[1].title}
+                                    </a>
+                                </td>
+                                <td> ￥${arr[0].price}</td>
+                                <td>
+                                    <div class=""><span class="minus">-</span> <input type="text" maxlength="2"
+                                            readonly="readonly" class="" value="${elm.num}" id="num"> <span class="add">+</span></div>
+                                </td>
+                                <td class="subtotal">
+                                    ￥${(arr[0].price * elm.num).toFixed(2)}
+                                </td>
+                                <td>
+                                    <a title="删除" class="del">×</a>
+                                </td>
+                            </tr>`;
                 });
+
 
                 $('.shopcar table>tbody').append(str);
                 $('.shopcar table>caption>span').html(count);
                 $('.shopcar table>tfoot td:last-child>p').html('￥' + sum.toFixed(2));
+                lazyload();
+
+
+                $('.minus').on('click', function (e) {
+
+                    var n = parseInt($(e.target).siblings('#num').val());
+                    $(e.target).siblings('#num').val(n - 1);
+                    var index = $('tbody>tr').index($(e.target).parent().parent().parent());
+
+                    if ($(e.target).siblings('#num').val() == '0') {
+                        ($(e.target).parent().parent().parent()).remove();
+                        shop.splice(index, 1);
+                        // console.log(shop);
+                        cookie.set('shop', JSON.stringify(shop), 1);
+
+
+
+                    } else {
+                        n = parseInt($(e.target).siblings('#num').val());
+
+                        // console.log(index);
+                        // console.log(shop[index].price);
+
+                        $(e.target).parent().parent().siblings('.subtotal').html('￥' + (shop[index].price * n).toFixed(2));
+
+                        shop[index].num = $(e.target).siblings('#num').val();
+                        // console.log(shop);
+                        cookie.set('shop', JSON.stringify(shop), 1);
+
+                    }
+                    location.reload();
+                });
+
+                $('.add').on('click', function (e) {
+                    var n = parseInt($(e.target).siblings('#num').val());
+                    $(e.target).siblings('#num').val(n + 1);
+                    // if ($(e.target).siblings('#num').val() >= num) {
+                    //     $(e.target).siblings('#num').val(num);
+                    // }
+                    n = parseInt($(e.target).siblings('#num').val());
+                    var index = $('tbody>tr').index($(e.target).parent().parent().parent());
+                    $(e.target).parent().parent().siblings('.subtotal').html('￥' + (shop[index].price * n).toFixed(2));
+
+                    shop[index].num = $(e.target).siblings('#num').val();
+                    cookie.set('shop', JSON.stringify(shop), 1);
+
+                    location.reload();
+                });
+            }
+        });
+    } else {
+        $('.progress,.shopcar').css({
+            display: 'none'
+        });
+        lazyload();
+    }
+
+    removeShop(shop);
+
+    // 删除购物车商品
+    function removeShop(shop) {
+        $('.shopcar').on('click', function (e) {
+            var index = $('tbody>tr').index($(e.target).parent().parent());
+
+            if ($(e.target).hasClass('del')) {
+                // console.log($(e.target).parent().parent());
+                ($(e.target).parent().parent()).remove();
+
+                shop.splice(index, 1);
+                // console.log(index);
+                cookie.set('shop', JSON.stringify(shop), 1);
+
+                location.reload();
             }
         });
     }
+
+    var user = cookie.get('user');
+    if (user && user != '{}') {
+        user = JSON.parse(user);
+        if (user.isLogin == 'true') {
+            $.ajax({
+                type: "get",
+                dataType: 'json',
+                url: '../php/hasUser.php',
+                error: function (err) {
+                    console.log(err);
+                },
+                success: function (res) {
+                    // console.log(res);
+                    if (res.has == 'true') {
+                        $('.personage>.reg-login>ul>li:first-child').html(`<a class="userName">欢迎您，user</a>`);
+                        $('.personage>.reg-login>ul>li:last-child').css('display', 'block');
+                        $('.personage>.reg-login>ul>li:last-child>.exit').on('click', function () {
+                            // console.log(user);
+                            if (user.isLogin == 'true') {
+                                user.isLogin = 'false';
+                            }
+                            cookie.set('user', JSON.stringify(user), 1);
+                            // console.log(cookie.get('user'));
+                            location.reload();
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+    $('#query').on('click', function () {
+        var value = $('#search').val() ? $('#search').val() : $('#search').attr('placeholder');
+        console.log(value);
+        location.href = `../html/search.html?name=${value}`;
+    });
+    $('#search').on('keyup', function (e) {
+        if (e.keyCode == 13) {
+            var value = $(this).val() ? $(this).val() : $(this).attr('placeholder');
+            location.href = `../html/search.html?name=${value}`;
+        }
+    })
 });

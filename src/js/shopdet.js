@@ -1,6 +1,7 @@
 $(function () {
     var id = location.search.split('=')[1];
     // console.log(id);
+
     $.ajax({
         type: 'post',
         url: '../php/getItem.php',
@@ -135,6 +136,7 @@ $(function () {
         // dataFilter: function () {}
     });
 
+    // 存储cookie
     function saveData(id, num, price) {
         var data = {
             id: id,
@@ -156,6 +158,7 @@ $(function () {
         cookie.set('shop', JSON.stringify(shop), 1);
     }
 
+    // 改变数量
     function changeNum(num) {
         num = parseInt(num);
         $('.details').on('click', function (e) {
@@ -172,4 +175,38 @@ $(function () {
         });
     }
 
+    var user = cookie.get('user');
+    if (user && user != '{}') {
+        user = JSON.parse(user);
+        if (user.isLogin == 'true') {
+            $.ajax({
+                type: "get",
+                dataType: 'json',
+                url: '../php/hasUser.php',
+                error: function (err) {
+                    console.log(err);
+                },
+                success: function (res) {
+                    // console.log(res);
+                    if (res.has == 'true') {
+                        $('.personage>.reg-login>ul>li:first-child').html(`<a class="userName">欢迎您，user</a>`);
+                        $('.personage>.reg-login>ul>li:last-child').css('display', 'block');
+                        $('.personage>.reg-login>ul>li:last-child>.exit').on('click', function () {
+                            // console.log(user);
+                            if (user.isLogin == 'true') {
+                                user.isLogin = 'false';
+                            }
+                            cookie.set('user', JSON.stringify(user), 1);
+                            // console.log(cookie.get('user'));
+                            location.reload();
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+    $('#query').on('click', function () {
+        location.href = '../html/search.html';
+    });
 });

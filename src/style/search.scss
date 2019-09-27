@@ -340,264 +340,192 @@ body {
 
     }
 
-    >.progress {
-        width: 100%;
-        height: 180px;
-        text-align: center;
-
-        >img {
-            margin-top: 50px;
-        }
-    }
-
-    >.shopcar {
+    >.content {
         >.wrapper {
-            margin-bottom: 20px;
+            >h5 {
+                margin: 12px 0 30px;
+                color: rgb(153, 153, 153);
+                font-size: 12px;
+                line-height: 1.5;
+                font-weight: 300;
+                padding-left: 10px;
 
-            >table {
-                border-collapse: collapse;
-                border-spacing: 0;
-                border: 1px solid #eef0f0;
-                font-size: 13px;
-                width: 100%;
+                >a {
+                    color: #999;
+                    font-size: 12px;
+                }
+            }
 
-                >caption {
-                    text-align: left;
-                    font-size: 14px;
+            >.nb-access-all {
+                >ul {
+                    width: 100%;
+                    margin: auto;
 
-                    >span {
-                        color: red;
+                    >li {
+                        display: block;
+                        padding: 15px 0;
+                        border-bottom: 1px #f1f1f1 solid;
+
+                        >a {
+                            display: inline-block;
+                            padding: 0 10px;
+                            color: #999899;
+                            font-size: 14px;
+                            transition: color .3s ease-in-out;
+                        }
+
+                        >a:first-child,
+                        >a:hover {
+                            color: #e8340e;
+                        }
+                    }
+
+                    >#typeList {}
+
+                    >#phoneList {}
+
+                    >#searchType {
+                        >a:first-child {
+                            color: #999899;
+                        }
                     }
                 }
+            }
 
-                >thead {
-                    >tr {
-                        >th {
-                            height: 36px;
-                            line-height: 36px;
-                            background-color: #f7f9f9;
-                            color: #727171;
-                            text-align: center;
-                            border: 1px solid #eef0f0;
-                            padding-top: 8px;
-                            padding-bottom: 8px;
-                            vertical-align: middle;
-                            font-size: 12px;
-                        }
-                    }
+            >#searchBlock {
+                margin-top: 10px;
+                margin-bottom: 60px;
+
+                &:after {
+                    content: "";
+                    display: block;
+                    height: 0;
+                    clear: both;
+                    visibility: hidden;
+                    overflow: hidden;
                 }
 
-                >tbody {
-                    >tr {
-                        &:hover>td {
-                            background-color: #ebf3e6;
-                        }
+                >li {
+                    width: 290px;
+                    height: 450px;
+                    margin-left: 13px;
+                    background: #f4f3ef;
+                    margin-bottom: 13px;
+                    float: left;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
 
-                        >td {
-                            text-align: center;
-                            border: 1px solid #eef0f0 !important;
-                            padding: 10px;
-                            vertical-align: middle;
-                        }
+                    >a {
+                        >.nbc-pro-cont {
+                            height: 382px;
+                            position: relative;
 
-                        >td:first-child {
-                            >img {
-                                width: 100px;
-                                height: 100px;
-                            }
-                        }
+                            >.figure {
+                                height: 248px;
+                                width: 290px;
+                                margin-top: 54px;
+                                transition: transform 0.15s linear;
 
-                        >td:nth-child(2) {
-                            text-align: left;
-
-                            >a {
-                                font-size: 16px;
-                                color: #000;
-
-                                &:hover {
-                                    color: #cf2b00;
+                                >img {
+                                    height: 100%;
                                 }
                             }
-                        }
 
-                        >td:nth-child(3) {}
+                            >.figure-info {
+                                margin-top: 10px;
+                                line-height: 24px;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
 
-                        >td:nth-child(4) {
-                            >div {
-                                border: 1px solid #e0d7e3;
-                                border-radius: 4px;
-                                display: inline-block;
+                                >h2 {
+                                    font-size: 16px;
+                                    color: #222;
+                                    font-weight: normal;
+                                }
 
                                 >span {
-                                    cursor: pointer;
-                                    padding: 6px 8px;
-                                    color: #606366;
-                                    font-size: 16px;
-                                }
-
-                                >input {
-                                    height: 25px;
-                                    background: transparent;
-                                    border-left: 1px solid #ccc;
-                                    border-right: 1px solid #ccc;
-                                    width: 50px;
-                                    text-align: center;
-                                    color: #899096;
-                                    border-top: none;
-                                    border-bottom: none;
-                                    outline: 0;
+                                    font-size: 13px;
+                                    color: #999;
                                 }
                             }
-                        }
 
-                        >td:nth-child(5) {
-                            line-height: 1.8;
-                        }
-
-                        >td:nth-child(6) {
-                            >a {
-                                width: 20px;
-                                height: 20px;
-                                border: none;
-                                border-radius: 50%;
-                                color: #838383;
+                            >.price {
                                 text-align: center;
-                                font-weight: bold;
-                                font-size: 18px;
-                                font-family: "arial", sans-serif;
-                                line-height: 19px;
-                                cursor: pointer;
-                                font-size: 18px;
-                                display: inline-block;
-                                margin-left: 8px;
+                                padding: 0;
+                                left: 0;
+                                bottom: 32px;
+                                position: absolute;
+                                width: 100%;
+
+                                >span {
+                                    margin-right: 5px;
+                                    padding-top: 0;
+                                    color: #f35c49;
+                                    display: inline-block;
+                                    font-family: 'Microsoft Yahei',
+                                        微软雅黑,
+                                        Arial,
+                                        Helvetica,
+                                        sans-serif;
+                                    font-weight: 200;
+
+                                    >sub {
+                                        font-size: 14px !important;
+                                        line-height: 32px !important;
+                                        vertical-align: text-top;
+                                    }
+
+                                    >em {
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        line-height: 32px;
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        margin-bottom: 5px;
+                                    }
+                                }
                             }
                         }
-
                     }
-                }
 
-                >tfoot {
-                    >tr {
-                        >td {
-                            padding: 10px;
-                            border: 1px solid #eef0f0;
-                            vertical-align: middle;
+                    >.nbc-pro-btn:hover {
+                        display: block;
+                    }
+
+                    >.nbc-pro-btn {
+                        display: none;
+                        width: 100%;
+                        position: absolute;
+                        bottom: 32px;
+                        text-align: center;
+
+
+
+                        >a {
+                            width: 116px;
+                            height: 34px;
+                            line-height: 34px;
+                            text-align: center;
+                            border: none;
+                            border-radius: 16px;
+                            color: #666;
+                            -webkit-transition: all .2s ease-in-out;
+                            -moz-transition: all .2s ease-in-out;
+                            transition: all .2s ease-in-out;
+                            margin: 0 6px;
+                            display: inline-block;
                         }
 
-                        >td:first-child {
-                            height: 90px;
-                            box-sizing: border-box;
-                            text-align: left;
+                        >.btn-info {
+                            background: #fff;
+                            color: #f35c49;
                         }
 
-                        >td:nth-child(2) {
-                            text-align: right;
-                            line-height: 1.8;
-
-                            >p {
-                                font-size: 15px;
-                                line-height: 1.7;
-                            }
+                        >.btn-sell {
+                            background: #f35c49;
+                            color: #fff;
                         }
-
-                        >td:nth-child(3) {
-                            text-align: left;
-                            line-height: 1.8;
-                        }
-                    }
-                }
-            }
-
-            >div {
-                border: 1px solid #e7e7e7;
-                overflow: hidden;
-                text-align: center;
-                height: 70px;
-                border-top: none;
-
-                >a {
-                    margin: 14.6px 0;
-                    display: block;
-                    padding: 10px;
-                    float: left;
-                    width: 100px;
-                    border-radius: 20px;
-                    box-sizing: border-box;
-                    cursor: pointer;
-                }
-
-                >a:first-child {
-                    margin-left: 450px;
-                    color: #e8380d;
-                    background: #fff;
-                    border: 1px solid #e8380d;
-
-                    &:hover {
-                        color: #000;
-                    }
-                }
-
-                >a:last-child {
-                    color: #fff;
-                    background: #e8380d;
-                    margin-left: 50px;
-
-                    &:hover {
-                        color: #000;
-                    }
-                }
-            }
-        }
-    }
-
-    >.noshop {
-        margin: 0 auto;
-        width: 670px;
-        position: relative;
-        margin-bottom: 60px;
-
-        >.con {
-            overflow: hidden;
-
-            >.con-l {
-                top: 100px;
-                width: auto;
-                padding: 0px;
-                float: left;
-                overflow: hidden;
-                position: relative;
-
-                >div {
-                    font: 28px/1.3 '\5FAE\8F6F\96C5\9ED1', '\5b8b\4f53';
-                    color: #666;
-                    width: 270px;
-                    margin-bottom: 18px;
-                }
-
-                >a {
-                    width: 165px;
-                    height: 35px;
-                    display: block;
-                    line-height: 35px;
-                    text-align: center;
-                    background: #e8380d;
-                    border-radius: 25px;
-                    color: #fff;
-                }
-            }
-
-            >.con-r {
-                margin-top: 50px;
-                float: left;
-                margin-left: 30px;
-
-                >div {
-                    width: 274px;
-                    height: 269px;
-
-                    >img {
-                        width: 274px;
-                        height: 269px;
                     }
                 }
             }

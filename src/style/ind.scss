@@ -215,7 +215,6 @@ body {
 
                 >.personage {
 
-
                     &:hover>.reg-login {
                         display: block;
                     }
@@ -225,10 +224,12 @@ body {
                         position: absolute;
                         z-index: 21;
                         width: 260px;
-                        height: 475px;
+                        // height: 538px;
+                        // overflow: hidden;
                         background-color: #282828;
-                        top: 80px;
+                        top: 70px;
                         right: 0;
+
 
                         >span {
                             position: absolute;
@@ -247,7 +248,6 @@ body {
                                 height: 60px;
                                 overflow: hidden;
                                 border-bottom: 1px solid #555;
-
 
                                 >a {
                                     display: block;
@@ -274,17 +274,20 @@ body {
 
                             >li:last-child {
                                 border: 0;
+                                display: none;
                             }
 
                             >li:first-child {
                                 padding: 0;
-                                height: 70px;
-                                margin: 30px 0 10px;
+
+                                &:hover>.userName {
+                                    color: #999;
+                                }
 
                                 >a {
                                     display: block;
                                     line-height: 36px;
-                                    margin: 0 auto 10px;
+                                    margin: 30px auto 10px;
                                     width: 125px;
                                     color: white;
                                     height: 36px;
@@ -294,7 +297,17 @@ body {
                                     cursor: pointer;
                                 }
 
+                                >.userName {
+                                    font-size: 16px;
+                                    padding: 0;
+                                    line-height: 70px;
+                                    margin: 0.3em auto;
+                                    border-radius: 0px;
+                                    background-color: transparent;
+                                }
+
                                 >p {
+                                    margin-bottom: 10px;
                                     height: 24px;
                                     line-height: 24px;
                                     vertical-align: top;

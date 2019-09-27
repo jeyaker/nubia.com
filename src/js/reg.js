@@ -1,8 +1,10 @@
 $(function () {
-    var data = {};
-    data.phone = 0;
-    data.pwd = 0;
-    data.checkbox = 0;
+    var data = {
+        pwd: 0,
+        phone: 0,
+        checkbox: 0
+    };
+
     $('#phone').on('blur', function () {
         if ($(this).val() == '' || /^\s*$/.test($(this).val())) {
             $('.phone').html('请填写信息！');
@@ -33,6 +35,7 @@ $(function () {
             data.phone = 0;
         }
     });
+
     $('#pwd').on('blur', function () {
         var reg = /(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{6,16}$/;
         if ($(this).val() == '' || /^\s*$/.test($(this).val())) {
@@ -46,6 +49,7 @@ $(function () {
             data.pwd = 0;
         }
     });
+
     $('.submit').on('click', function () {
         if ($('#checkbox').prop('checked') == false) {
             alert('未同意相关协议，将无法进行注册');
@@ -92,4 +96,42 @@ $(function () {
             });
         }
     });
+
+    $('#codebtn').on('click', function () {
+        if ($('#phone').val() == '' || /^\s*$/.test($('#phone').val())) {
+            $('.phone').html('请填写信息！');
+            data.phone = 0;
+        } else if ($('#pwd').val() == '' || /^\s*$/.test($('#pwd').val())) {
+            $('.pwd').html('请填写信息！');
+            data.pwd = 0;
+
+        } else {
+            $(this).val('发送成功');
+            var that = this;
+            var timer = null;
+            var time = 10;
+
+            $(this).attr({
+                'disabled': 'true'
+            });
+            timer = setInterval(function () {
+                var str = `重新发送(${time})`;
+                time--;
+
+                $(that).val(str);
+                $(that).css({
+                    'background-color': 'rgb(192, 192, 192)'
+                });
+                if (time == 0) {
+                    clearInterval(timer);
+                    $(that).css({
+                        'background-color': '#fff'
+                    });
+                    $(that).val('重新发送');
+                    $(that).removeAttr('disabled');
+                }
+            }, 1000);
+        }
+    });
+
 });

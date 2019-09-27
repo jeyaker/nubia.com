@@ -258,7 +258,7 @@
                     </li>
                     <li class="search">
                         <input type="text" name="search" id="search" placeholder="红魔3S" autocomplete="off">
-                        <a href="javascript:;"><i class="icon-magnify-glass icon-1x"></i></a>
+                        <a href="javascript:;" id="query"><i class="icon-magnify-glass icon-1x"></i></a>
                     </li>
                     <li class="personage">
                         <a href="javascript:;">
@@ -299,6 +299,11 @@
                                 <li>
                                     <a href="javascript:;">
                                         <i class="icon-mail"></i><span>收货地址</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="exit">
+                                        <i class="icon-user-o"></i><span>退出</span>
                                     </a>
                                 </li>
                             </ul>
@@ -353,7 +358,7 @@
                     <tfoot>
                         <tr>
                             <td colspan="2"></td>
-                            <td colspan="2">
+                            <td colspan="2" class="total">
                                 <p>合计(不含运费):</p>
                             </td>
                             <td colspan="2" class="">
@@ -364,6 +369,18 @@
                 </table>
                 <div class="">
                     <a href="../html/index.html">继续购物</a> <a href="javascript:;">立即结算</a>
+                </div>
+            </div>
+        </section>
+        <section class="noshop">
+            <div class="con">
+                <div class="con-l">
+                    <div class="h1">您的购物车还是空的赶紧行动吧！</div> <a href="../html/index.html" class="">马上去购物</a>
+                </div>
+                <div class="con-r">
+                    <div class="">
+                        <img src="../img/empty_icon.jpg" alt="...">
+                    </div>
                 </div>
             </div>
         </section>

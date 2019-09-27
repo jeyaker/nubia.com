@@ -5,6 +5,7 @@ $(function () {
         phone: 0,
         pwd: 0
     };
+
     $('#phone').on('blur', function () {
         if ($(this).val() == '' || /^\s*$/.test($(this).val())) {
             $('.phone').html('请填写信息！');
@@ -14,6 +15,7 @@ $(function () {
             data.phone = 1;
         }
     });
+
     $('#pwd').on('blur', function () {
         if ($(this).val() == '') {
             $('.pwd').html('请输入密码');
@@ -23,6 +25,7 @@ $(function () {
             data.pwd = 1;
         }
     });
+
     $('#btn').on('click', function () {
         if ($('#phone').val() == '') {
             $('.phone').html('请填写信息！');
@@ -30,7 +33,6 @@ $(function () {
         } else if ($('#pwd').val() == '') {
             $('.pwd').html('请输入密码');
             data.pwd = 0;
-
         }
         if (data.pwd + data.phone == 2) {
             $.ajax({
@@ -45,6 +47,15 @@ $(function () {
                     // console.log(res.msg);
                     if (res.has == '1') {
                         alert(res.msg);
+
+                        var data = {
+                            name: $('#phone').val(),
+                            pwd: $.md5($('#pwd').val()),
+                            isLogin: 'true'
+                        };
+
+                        cookie.set('user', JSON.stringify(data), 1);
+
                         location.href = '../html/index.html';
                     } else if (res.has == '2') {
                         $('.pwd').html(res.msg);
