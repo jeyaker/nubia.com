@@ -216,5 +216,10 @@ $(function () {
             var value = $(this).val() ? $(this).val() : $(this).attr('placeholder');
             location.href = `../html/search.html?name=${value}`;
         }
-    })
+    });
+
+
+    $('.toTop').on('click', function () {
+        $(window).scrollTop(0);
+    });
 });

@@ -24,7 +24,7 @@ $(function () {
         dataType: 'json',
         // dataFilter: function () {},
         success: function (res) {
-            console.log(res);
+            // console.log(res);
             // console.log(res[0].id);
 
             var str1 = '',
@@ -148,7 +148,7 @@ $(function () {
 
     $('#query').on('click', function () {
         var value = $('#search').val() ? $('#search').val() : $('#search').attr('placeholder');
-        console.log(value);
+        // console.log(value);
         location.href = `../html/search.html?name=${value}`;
     });
     $('#search').on('keyup', function (e) {
@@ -156,5 +156,10 @@ $(function () {
             var value = $(this).val() ? $(this).val() : $(this).attr('placeholder');
             location.href = `../html/search.html?name=${value}`;
         }
-    })
+    });
+
+
+    $('.toTop').on('click', function () {
+        $(window).scrollTop(0);
+    });
 });

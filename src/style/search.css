@@ -357,7 +357,7 @@ body > .content > .wrapper > #searchBlock > li {
   height: 450px;
   background-color: #f4f3ef;
   position: relative;
-  margin: 0 0 13px 13px;
+  margin: 0 0 13px 10px;
 }
 
 body > .content > .wrapper > #searchBlock > li:hover > a > div > p {

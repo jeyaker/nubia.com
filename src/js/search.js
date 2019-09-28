@@ -59,12 +59,12 @@ $(function () {
         location.reload();
     });
 
-    var name = decodeURIComponent(location.search.split('=')[1]);
-    console.log(name);
+    var name = decodeURIComponent(location.search.split('=')[1]); // 解码中文
+    // console.log(name);
 
     $('#query').on('click', function () {
         var value = $('#search').val() ? $('#search').val() : $('#search').attr('placeholder');
-        console.log(value);
+        // console.log(value);
         location.href = `../html/search.html?name=${value}`;
     });
     $('#search').on('keyup', function (e) {
@@ -86,27 +86,45 @@ $(function () {
             console.log(err);
         },
         success: function (res) {
-            console.log(res);
+            // console.log(res);
             if (res.length) {
                 var str = '';
 
                 for (let i = 0; i < res.length; i++) {
                     var pic = JSON.parse(res[i].pic);
                     console.log(pic);
-                    str += `<li>
-                        <a href="../html/shopdet.html?id=${res[i].id}">
-                            <img draggable="false" class="lazy" data-original="${pic[0].src}" alt="..." title="">
-                            <div>
-                                <span>${res[i].title}</span>
-                                <em>${res[i].details}</em>
-                                <p><sup>￥</sup> <strong>${res[i].price}</strong></p>
-                            </div>
-                        </a>
-                        <div class="btn">
-                            <a href="javascript:;">查看详情</a>
-                            <a href="../html/shopdet.html?id=${res[i].id}">立即购买</a>
-                        </div>
-                    </li>`;
+                    var details = res[i].details;
+                    if (details) {
+                        str += `<li>
+                                <a href="../html/shopdet.html?id=${res[i].id}">
+                                    <img draggable="false" class="lazy" data-original="${pic[0].src}" alt="..." title="">
+                                    <div>
+                                        <span>${res[i].title}</span>
+                                        <em>${res[i].details}</em>
+                                        <p><sup>￥</sup> <strong>${res[i].price}</strong></p>
+                                    </div>
+                                </a>
+                                <div class="btn">
+                                    <a href="javascript:;">查看详情</a>
+                                    <a href="../html/shopdet.html?id=${res[i].id}">立即购买</a>
+                                </div>
+                            </li>`;
+                    } else {
+                        str += `<li>
+                                <a href="../html/shopdet.html?id=${res[i].id}">
+                                    <img draggable="false" class="lazy" data-original="${pic[0].src}" alt="..." title="">
+                                    <div>
+                                        <span>${res[i].title}</span>
+                                        <p><sup>￥</sup> <strong>${res[i].price}</strong></p>
+                                    </div>
+                                </a>
+                                <div class="btn">
+                                    <a href="javascript:;">查看详情</a>
+                                    <a href="../html/shopdet.html?id=${res[i].id}">立即购买</a>
+                                </div>
+                            </li>`;
+                    }
+
                 }
 
                 $('#searchBlock .nothing').before(str);
@@ -119,5 +137,9 @@ $(function () {
             lazyload();
 
         }
+    });
+
+    $('.toTop').on('click', function () {
+        $(window).scrollTop(0);
     });
 });
