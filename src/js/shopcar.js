@@ -1,10 +1,12 @@
 $(function () {
+    // 懒加载函数
     function lazyload() {
         $('img.lazy').lazyload({
             effect: "fadeIn"
         });
     }
 
+    // 侧边栏
     $(window).on('scroll', function () {
         // console.log(this);
         // var windowHeight = $(window).height(); // 当前窗口内的高度 innerHeight
@@ -22,6 +24,7 @@ $(function () {
         }
     });
 
+    // 提取cookie数据
     var shop = cookie.get('shop');
     // console.log(shop);
     if (shop && shop != '[]') {
@@ -56,7 +59,7 @@ $(function () {
                     sum += arr[0].price * elm.num;
                     str += `<tr>
                                 <td>
-                                    <img class="lazy" data-original="${pic[0].src}">
+                                    <img class="lazy" data-original="${pic[1].src}">
                                 </td>
                                 <td class="">
                                     <a href="javascript:;" class="">
@@ -81,9 +84,9 @@ $(function () {
                 $('.shopcar table>tbody').append(str);
                 $('.shopcar table>caption>span').html(count);
                 $('.shopcar table>tfoot td:last-child>p').html('￥' + sum.toFixed(2));
-                lazyload();
+                lazyload(); // 图片懒加载
 
-
+                // 加减按钮
                 $('.minus').on('click', function (e) {
 
                     var n = parseInt($(e.target).siblings('#num').val());
@@ -95,9 +98,6 @@ $(function () {
                         shop.splice(index, 1);
                         // console.log(shop);
                         cookie.set('shop', JSON.stringify(shop), 1);
-
-
-
                     } else {
                         n = parseInt($(e.target).siblings('#num').val());
 
@@ -109,7 +109,6 @@ $(function () {
                         shop[index].num = $(e.target).siblings('#num').val();
                         // console.log(shop);
                         cookie.set('shop', JSON.stringify(shop), 1);
-
                     }
                     location.reload();
                 });
@@ -117,16 +116,16 @@ $(function () {
                 $('.add').on('click', function (e) {
                     var n = parseInt($(e.target).siblings('#num').val());
                     $(e.target).siblings('#num').val(n + 1);
-                    // if ($(e.target).siblings('#num').val() >= num) {
-                    //     $(e.target).siblings('#num').val(num);
-                    // }
-                    n = parseInt($(e.target).siblings('#num').val());
-                    var index = $('tbody>tr').index($(e.target).parent().parent().parent());
-                    $(e.target).parent().parent().siblings('.subtotal').html('￥' + (shop[index].price * n).toFixed(2));
+                    if ($(e.target).siblings('#num').val() >= 10) {
+                        $(e.target).siblings('#num').val(10);
+                    } else {
+                        n = parseInt($(e.target).siblings('#num').val());
+                        var index = $('tbody>tr').index($(e.target).parent().parent().parent());
+                        $(e.target).parent().parent().siblings('.subtotal').html('￥' + (shop[index].price * n).toFixed(2));
 
-                    shop[index].num = $(e.target).siblings('#num').val();
-                    cookie.set('shop', JSON.stringify(shop), 1);
-
+                        shop[index].num = $(e.target).siblings('#num').val();
+                        cookie.set('shop', JSON.stringify(shop), 1);
+                    }
                     location.reload();
                 });
             }
@@ -138,7 +137,7 @@ $(function () {
         lazyload();
     }
 
-    removeShop(shop);
+    removeShop(shop); // 删除按钮
 
     // 删除购物车商品
     function removeShop(shop) {
@@ -158,6 +157,7 @@ $(function () {
         });
     }
 
+    // 确认登录状态
     var user = cookie.get('user');
     if (user && user != '{}') {
         user = JSON.parse(user);
@@ -189,6 +189,7 @@ $(function () {
         }
     }
 
+    // 模糊搜索
     $('#query').on('click', function () {
         var value = $('#search').val() ? $('#search').val() : $('#search').attr('placeholder');
         console.log(value);
@@ -201,7 +202,7 @@ $(function () {
         }
     });
 
-
+    // 回到顶部
     $('.toTop').on('click', function () {
         $(window).scrollTop(0);
     });

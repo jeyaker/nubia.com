@@ -26,6 +26,7 @@ $(function () {
         }
     });
 
+    // 登录按钮
     $('#btn').on('click', function () {
         if ($('#phone').val() == '') {
             $('.phone').html('请填写信息！');
@@ -54,7 +55,7 @@ $(function () {
                             isLogin: 'true'
                         };
 
-                        cookie.set('user', JSON.stringify(data), 1);
+                        cookie.set('user', JSON.stringify(data), 1); // 登录信息保存到cookie
 
                         location.href = '../html/index.html';
                     } else if (res.has == '2') {

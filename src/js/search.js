@@ -1,12 +1,14 @@
 $(function () {
+    // 懒加载函数
     function lazyload() {
         $('img.lazy').lazyload({
             effect: "fadeIn"
         });
     }
 
-    lazyload();
+    lazyload(); // 图片懒加载
 
+    // 侧边栏
     $(window).on('scroll', function () {
         // console.log(this);
         // var windowHeight = $(window).height(); // 当前窗口内的高度 innerHeight
@@ -24,6 +26,7 @@ $(function () {
         }
     });
 
+    // 确认登录状态
     var user = cookie.get('user');
     if (user && user != '{}') {
         user = JSON.parse(user);
@@ -55,13 +58,10 @@ $(function () {
         }
     }
 
-    $('#query').on('click', function () {
-        location.reload();
-    });
-
     var name = decodeURIComponent(location.search.split('=')[1]); // 解码中文
     // console.log(name);
 
+    // 模糊搜索
     $('#query').on('click', function () {
         var value = $('#search').val() ? $('#search').val() : $('#search').attr('placeholder');
         // console.log(value);
@@ -74,6 +74,7 @@ $(function () {
         }
     })
 
+    // 模糊搜索 检索数据库
     $('.content .name').html(name);
     $.ajax({
         type: 'post',
@@ -139,6 +140,7 @@ $(function () {
         }
     });
 
+    // 回到顶部
     $('.toTop').on('click', function () {
         $(window).scrollTop(0);
     });

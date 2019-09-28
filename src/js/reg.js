@@ -5,6 +5,7 @@ $(function () {
         checkbox: 0
     };
 
+    // phone验证
     $('#phone').on('blur', function () {
         if ($(this).val() == '' || /^\s*$/.test($(this).val())) {
             $('.phone').html('请填写信息！');
@@ -36,6 +37,7 @@ $(function () {
         }
     });
 
+    // 密码验证
     $('#pwd').on('blur', function () {
         var reg = /(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{6,16}$/;
         if ($(this).val() == '' || /^\s*$/.test($(this).val())) {
@@ -50,6 +52,7 @@ $(function () {
         }
     });
 
+    // submit
     $('.submit').on('click', function () {
         if ($('#checkbox').prop('checked') == false) {
             alert('未同意相关协议，将无法进行注册');
@@ -62,9 +65,11 @@ $(function () {
             data.pwd = 0;
 
         }
+        // 勾选复选框
         if ($('#checkbox').prop('checked') == true) {
             data.checkbox = 1;
         }
+        // 满足条件
         if (data.checkbox + data.phone + data.pwd == 3) {
             $.ajax({
                 type: 'post',
@@ -75,7 +80,7 @@ $(function () {
                 dataType: 'json',
                 url: '../php/reg.php',
                 success: function (res) {
-                    console.log(res);
+                    // console.log(res);
                     if (res.has == 'true') {
                         alert(res.msg);
                         location.href = '../html/index.html';
@@ -97,19 +102,13 @@ $(function () {
         }
     });
 
+    // 倒计时 发送验证码
     $('#codebtn').on('click', function () {
-        if ($('#phone').val() == '' || /^\s*$/.test($('#phone').val())) {
-            $('.phone').html('请填写信息！');
-            data.phone = 0;
-        } else if ($('#pwd').val() == '' || /^\s*$/.test($('#pwd').val())) {
-            $('.pwd').html('请填写信息！');
-            data.pwd = 0;
-
-        } else {
+        if (data.phone + data.pwd == 2) {
             $(this).val('发送成功');
             var that = this;
             var timer = null;
-            var time = 10;
+            var time = 60;
 
             $(this).attr({
                 'disabled': 'true'

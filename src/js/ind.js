@@ -1,12 +1,16 @@
 $(function () {
+    // 轮播图
     $('#slider').slider();
 
+    // 侧边栏 
     $(window).on('scroll', function () {
         // console.log(this);
         // var windowHeight = $(window).height(); // 当前窗口内的高度 innerHeight
         var scrollTop = $(window).scrollTop(); //获得当前滚动条滚动的距离
         // var docHeight = $(document).height(); //获得文档的高度
         // console.log(scrollTop);
+
+        // 使回到顶部 在刚进入页面时消失 滑动到300时出现
         if (scrollTop < 300) {
             $('.toTop').css({
                 display: 'none'
@@ -18,6 +22,7 @@ $(function () {
         }
     });
 
+    // 数据库
     $.ajax({
         url: '../php/getall.php',
         type: 'get',
@@ -29,10 +34,11 @@ $(function () {
 
             var str1 = '',
                 str2 = '';
+            // 获取数据库图片
             for (var i = 0; i < 6; i++) {
                 var pic = JSON.parse(res[i + 45].pic);
                 // console.log(res[i + 45].original_price);
-                if (res[i + 45].original_price == 0.00) {
+                if (res[i + 45].original_price == 0.00) { // 如果存在原价
                     str1 += `<li>
                                 <a href = "../html/shopdet.html?id=${res[i + 45].id}">
                                     <img class="lazy" data-original="${pic[0].src}" alt = "..." title = "">
@@ -68,6 +74,7 @@ $(function () {
 
             $('#rx-content').append(str1);
 
+            // 获取数据库图片
             for (var i = 0; i < 6; i++) {
                 var pic = JSON.parse(res[i + 52].pic);
                 if (res[i + 52].original_price == 0.00) {
@@ -101,13 +108,15 @@ $(function () {
 
             $('#jx-content').append(str2);
 
-            lazyload();
+            lazyload(); // 图片懒加载
         },
         error: function (err) {
             console.log(err);
         }
     });
 
+
+    // 懒加载函数
     function lazyload() {
         $("img.lazy").lazyload({
             // placeholder: "../img/grey.gif",
@@ -115,10 +124,11 @@ $(function () {
         });
     }
 
+    //  确认登录状态
     var user = cookie.get('user');
-    if (user && user != '{}') {
+    if (user && user != '{}') { // 如果cookie存在用户信息
         user = JSON.parse(user);
-        if (user.isLogin == 'true') {
+        if (user.isLogin == 'true') { // 确认是否登录
             $.ajax({
                 type: "get",
                 dataType: 'json',
@@ -127,10 +137,12 @@ $(function () {
                     console.log(err);
                 },
                 success: function (res) {
-                    // console.log(res);
-                    if (res.has == 'true') {
+                    // console.log(res); 
+                    if (res.has == 'true') { // 确认数据库是否存在此用户（用户名、密码）
                         $('.personage>.reg-login>ul>li:first-child').html(`<a class="userName">欢迎您，user</a>`);
                         $('.personage>.reg-login>ul>li:last-child').css('display', 'block');
+
+                        // 退出登录按钮事件
                         $('.personage>.reg-login>ul>li:last-child>.exit').on('click', function () {
                             // console.log(user);
                             if (user.isLogin == 'true') {
@@ -146,6 +158,8 @@ $(function () {
         }
     }
 
+
+    // 模糊搜索
     $('#query').on('click', function () {
         var value = $('#search').val() ? $('#search').val() : $('#search').attr('placeholder');
         // console.log(value);
@@ -158,7 +172,7 @@ $(function () {
         }
     });
 
-
+    // 回到顶部
     $('.toTop').on('click', function () {
         $(window).scrollTop(0);
     });
